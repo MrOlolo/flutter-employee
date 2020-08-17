@@ -84,68 +84,70 @@ class _CreatePersonPageState extends State<CreatePersonPage> {
       },
       child: Scaffold(
           appBar: AppBar(),
-          body: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
-            child: Form(
-              key: validateFormKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    height: 24,
-                  ),
-                  CustomTextField(
-                    label: 'Имя',
-                    controller: nameController,
-                    focusNode: nameFocus,
-                    validator: (value) {
-                      if (value.length < 2) return 'Некорректные данные';
-                      return null;
-                    },
-                  ),
-                  Container(
-                    height: 24,
-                  ),
-                  CustomTextField(
-                    label: 'Фамилия',
-                    controller: surnameController,
-                    focusNode: surnameFocus,
-                    validator: (value) {
-                      if (value.length < 2) return 'Некорректные данные';
-                      return null;
-                    },
-                  ),
-                  Container(
-                    height: 24,
-                  ),
-                  CustomTextField(
-                    label: 'Отчество (если есть)',
-                    focusNode: patronymicFocus,
-                    controller: patronymicController,
-                  ),
-                  Container(
-                    height: 24,
-                  ),
-                  CustomTextField(
-                    label: 'Дата рождения (день, месяц, год)',
-                    controller: dateController,
-                    datePickMode: true,
-                    onTap: () => chooseDate(context),
-                  ),
-                  Container(
-                    height: 24,
-                  ),
-                  if (createEmployee)
+          body: SafeArea(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.all(20),
+              child: Form(
+                key: validateFormKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      height: 24,
+                    ),
                     CustomTextField(
-                      label: 'Должность',
-                      controller: positionController,
-                      focusNode: positionFocus,
+                      label: 'Имя',
+                      controller: nameController,
+                      focusNode: nameFocus,
                       validator: (value) {
                         if (value.length < 2) return 'Некорректные данные';
                         return null;
                       },
                     ),
-                ],
+                    Container(
+                      height: 24,
+                    ),
+                    CustomTextField(
+                      label: 'Фамилия',
+                      controller: surnameController,
+                      focusNode: surnameFocus,
+                      validator: (value) {
+                        if (value.length < 2) return 'Некорректные данные';
+                        return null;
+                      },
+                    ),
+                    Container(
+                      height: 24,
+                    ),
+                    CustomTextField(
+                      label: 'Отчество (если есть)',
+                      focusNode: patronymicFocus,
+                      controller: patronymicController,
+                    ),
+                    Container(
+                      height: 24,
+                    ),
+                    CustomTextField(
+                      label: 'Дата рождения (день, месяц, год)',
+                      controller: dateController,
+                      datePickMode: true,
+                      onTap: () => chooseDate(context),
+                    ),
+                    Container(
+                      height: 24,
+                    ),
+                    if (createEmployee)
+                      CustomTextField(
+                        label: 'Должность',
+                        controller: positionController,
+                        focusNode: positionFocus,
+                        validator: (value) {
+                          if (value.length < 2) return 'Некорректные данные';
+                          return null;
+                        },
+                      ),
+                  ],
+                ),
               ),
             ),
           ),

@@ -38,7 +38,7 @@ class _EmployeePageState extends State<EmployeePage> {
     bool horizontalOrientation = width > height;
     var body = (employee) => <Widget>[
           Container(
-            height: horizontalOrientation ? height : 230,
+            height: horizontalOrientation ? height : 235,
             width: horizontalOrientation ? width / 2.4 : width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
